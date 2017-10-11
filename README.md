@@ -1,5 +1,5 @@
 # goa
-Learning Golang Goa framework (https://goa.design)
+Simple use case of Goa framework (https://goa.design)
 ## Run server
 ```
 iMac-2:goa jt$ go run *.go
