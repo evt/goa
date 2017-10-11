@@ -7,15 +7,14 @@ definitions:
   Hotel:
     description: Hotel media type (default view)
     example:
-      id: 1
-      name: Quam et ex magnam sint.
+      id: 1234
+      name: Cititel Express Kota Kinabalu
     properties:
       id:
-        example: 1
-        minimum: 0
-        type: integer
+        example: 1234
+        type: string
       name:
-        example: Quam et ex magnam sint.
+        example: Cititel Express Kota Kinabalu
         type: string
     required:
     - id
