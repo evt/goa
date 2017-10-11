@@ -22,7 +22,7 @@ func NewHotelsController(service *goa.Service) *HotelsController {
 func (c *HotelsController) Search(ctx *app.SearchHotelsContext) error {
 	// HotelsController_Search: start_implement
 
-	// Read XML hotels file
+	// Read XML test file with hotel details
 	fileReader, err := file.GetXMLFileReader()
 	if err != nil {
 		return ctx.InternalServerError(err)
@@ -33,7 +33,7 @@ func (c *HotelsController) Search(ctx *app.SearchHotelsContext) error {
 	if err := decoder.Decode(searchResponse); err != nil {
 		return ctx.InternalServerError(err)
 	}
-
+	// Convert to the right response type
 	hotels := make(app.HotelCollection, len(searchResponse.ServiceHotels))
 	for i, h := range searchResponse.ServiceHotels {
 		hotels[i] = &app.Hotel{
@@ -41,6 +41,7 @@ func (c *HotelsController) Search(ctx *app.SearchHotelsContext) error {
 			Name: h.HotelInfo.Name,
 		}
 	}
+	// Reply to client
 	return ctx.OK(hotels)
 	// HotelsController_Search: end_implement
 }
